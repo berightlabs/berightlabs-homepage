@@ -176,7 +176,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="bg-ink text-paper">
+      <div className="bg-paper text-ink">
         <div className="mx-auto w-full max-w-[82rem] min-w-0 border-t border-transparent px-5 pb-10 pt-7 sm:px-8 sm:pb-12 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
@@ -184,11 +184,11 @@ export function Hero() {
             transition={{ delay: 0.18, duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
             className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-end"
           >
-          <p className={`${bodyCopyClassName} text-paper/74`}>
+          <p className={`${bodyCopyClassName} text-graphite`}>
             비바로연구소는 반복 업무, 판단, 운영, 시스템 구축을 더 적은 노동으로 처리하는 방식을 검증하고,
             장기적으로는 인간의 개입을 최소화한 자율 운영 시스템을 지향합니다.
           </p>
-          <p className="max-w-[15rem] text-xs leading-5 text-paper/36 lg:justify-self-end lg:text-right">
+          <p className="max-w-[15rem] text-xs leading-5 text-ash lg:justify-self-end lg:text-right">
             Independent lab for operating systems.
           </p>
           </motion.div>
