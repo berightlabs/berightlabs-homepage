@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  scrollbar-color: #d8d8d2 #f7f7f4;
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+  background: #f7f7f4;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background: #f7f7f4;
+  color: #050505;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f7f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d8d8d2;
+  border: 3px solid #f7f7f4;
+  border-radius: 999px;
+}
+
+#root {
+  min-height: 100%;
+  overflow-x: clip;
+}
+
+::selection {
+  color: #f7f7f4;
+  background: #050505;
+}
+
+a {
+  text-decoration: none;
+}
+
+.keep-ko {
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+
+.typing-caret {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.82em;
+  margin-left: 0.08em;
+  background: #D00A2E;
+  transform: translateY(0.08em);
+  transition: opacity 80ms linear;
+}
+
+.hero-bright-grain {
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='noise' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='gamma' amplitude='1.45' exponent='2.1' offset='0'/%3E%3CfeFuncG type='gamma' amplitude='1.45' exponent='2.1' offset='0'/%3E%3CfeFuncB type='gamma' amplitude='1.45' exponent='2.1' offset='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23noise)' opacity='0.72'/%3E%3C/svg%3E");
+  background-size: 132px 132px;
+  mix-blend-mode: screen;
+  opacity: 0.3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
