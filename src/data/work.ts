@@ -6,8 +6,8 @@ export type WorkItem = {
 };
 
 export const workSection = {
-  number: '01',
-  title: '작업 영역',
+  number: '02',
+  title: '작업 방식',
 } as const;
 
 export const workItems: WorkItem[] = [

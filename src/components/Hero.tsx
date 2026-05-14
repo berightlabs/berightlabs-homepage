@@ -185,11 +185,11 @@ export function Hero() {
             className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-end"
           >
           <p className={`${bodyCopyClassName} text-graphite`}>
-            비바로연구소는 반복 업무, 판단, 운영, 시스템 구축을 더 적은 노동으로 처리하는 방식을 검증하고,
+            <strong className="font-semibold">비바로연구소</strong>는 반복 업무, 판단, 운영, 시스템 구축을 더 적은 노동으로 처리하는 방식을 검증하고,
             장기적으로는 인간의 개입을 최소화한 자율 운영 시스템을 지향합니다.
           </p>
           <p className="max-w-[15rem] text-xs leading-5 text-ash lg:justify-self-end lg:text-right">
-            Independent lab for operating systems.
+            Many agents. One operator.
           </p>
           </motion.div>
         </div>

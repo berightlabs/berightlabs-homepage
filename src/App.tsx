@@ -1,3 +1,4 @@
+import { BuiltNote } from './components/BuiltNote';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
@@ -22,8 +23,13 @@ function App() {
           title={indexContent.title}
         >
           <div className="space-y-7 sm:space-y-9">
-            {indexContent.body.map((paragraph) => (
-              <StatementBlock key={paragraph}>{paragraph}</StatementBlock>
+            {indexContent.body.map((paragraph, index) => (
+              <StatementBlock
+                key={paragraph}
+                emphasized={index === indexContent.body.length - 1}
+              >
+                {paragraph}
+              </StatementBlock>
             ))}
           </div>
         </Section>
@@ -31,6 +37,7 @@ function App() {
         <Work />
         <Method />
         <Contact />
+        <BuiltNote />
       </main>
       <Footer />
     </div>

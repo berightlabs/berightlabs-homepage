@@ -1,6 +1,50 @@
+import { useEffect, useState } from 'react';
 import { navigationItems } from '../data/navigation';
 
 export function Header() {
+  const [activeHref, setActiveHref] = useState<string>('#top');
+
+  useEffect(() => {
+    const sectionIds = navigationItems.map((item) => item.href.slice(1));
+
+    const updateActiveSection = () => {
+      const marker = window.innerHeight * 0.35;
+      let nextActiveHref: string = navigationItems[0].href;
+
+      for (const sectionId of sectionIds) {
+        const section = document.getElementById(sectionId);
+
+        if (!section) {
+          continue;
+        }
+
+        if (section.getBoundingClientRect().top <= marker) {
+          nextActiveHref = `#${sectionId}`;
+        }
+      }
+
+      const isNearPageEnd =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+
+      if (isNearPageEnd) {
+        nextActiveHref = navigationItems[navigationItems.length - 1].href;
+      }
+
+      setActiveHref(nextActiveHref);
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection);
+    window.addEventListener('hashchange', updateActiveSection);
+
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
+      window.removeEventListener('hashchange', updateActiveSection);
+    };
+  }, []);
+
   return (
     <>
       <a
@@ -14,6 +58,10 @@ export function Header() {
           <a
             href="#top"
             aria-label="비바로연구소 홈"
+            onClick={(event) => {
+              event.preventDefault();
+              window.location.reload();
+            }}
             className="text-sm font-semibold leading-none outline-none transition-opacity duration-300 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-ink"
           >
             비바로연구소
@@ -26,7 +74,11 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="outline-none transition-opacity duration-300 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-ink"
+                onClick={() => setActiveHref(item.href)}
+                aria-current={activeHref === item.href ? 'page' : undefined}
+                className={`outline-none transition-colors duration-300 hover:text-[#D00A2E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-ink ${
+                  activeHref === item.href ? 'text-[#D00A2E]' : 'text-ink'
+                }`}
               >
                 {item.label}
               </a>

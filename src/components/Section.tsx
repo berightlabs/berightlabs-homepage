@@ -41,7 +41,11 @@ export function Section({ id, label, number, title, children, dark = false }: Se
             className={titleClassName}
           >
             {title.split('\n').map((line) => (
-              <span key={line} className={hasManualTitleBreak ? 'block whitespace-nowrap' : 'block'}>
+              <span
+                key={line}
+                className={hasManualTitleBreak ? 'block whitespace-nowrap' : 'block'}
+                style={hasManualTitleBreak ? { overflowWrap: 'normal' } : undefined}
+              >
                 {line}
               </span>
             ))}
